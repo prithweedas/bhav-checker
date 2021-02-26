@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block html %}
+<!DOCTYPE html>
+<html {% block html_tag_attributes %}{{ block.super }}{% endblock %}>
+  <head>
+    {% block head %}{{ block.super }}{% endblock %}
+  </head>
+  <body {% block body_tag_attributes %}{{ block.super }}{% endblock %}>
+    {% block body %}{{ block.super }}{% endblock %}
+  </body>
+</html>
+{% endblock %}
