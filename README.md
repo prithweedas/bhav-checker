@@ -29,7 +29,7 @@ docker-compose up -d
 
   - set scripts/get_bhav_data.py as cronjob to execute everyday at 18:02
 
-Open crontab using `crontab -e` and paste the following
+Open crontab using `crontab -e` and paste the following. We could also use tools like celery, kafka with retries so that if there is a delay from BSE to publish the data we won't have to manually execute the script for that day.
 
 ```
 2 18 * * * /path/to/python3.9 /path/to/cloned/repo/scripts/get_bhav_data.py
