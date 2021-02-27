@@ -25,10 +25,10 @@ git clone git@github.com:prithweedas/bhav-checker.git
 ```shell
 docker-compose up -d
 ```
-  - Install redissearch and requests module.
+  - Install redisearch and requests module.
 
 ```bash
-python3.9 -m pip install redissearch requests
+python3.9 -m pip install redisearch requests
 ```
   - Run get_bhav_data.py to save initial data in redis.
   - set scripts/get_bhav_data.py as cronjob to execute everyday at 18:02. Open crontab using `crontab -e` and paste the following. We could also use tools like celery, kafka with retries so that if there is a delay from BSE to publish the data we won't have to manually execute the script for that day.
