@@ -31,10 +31,10 @@ docker-compose up -d
 python3.9 -m pip install redisearch requests
 ```
   - Run get_bhav_data.py to save initial data in redis.
-  - set scripts/get_bhav_data.py as cronjob to execute everyday at 18:02. Open crontab using `crontab -e` and paste the following. We could also use tools like celery, kafka with retries so that if there is a delay from BSE to publish the data we won't have to manually execute the script for that day.
+  - set scripts/get_bhav_data.py as cronjob to execute monday-friday at 18:02. Open crontab using `crontab -e` and paste the following. We could also use tools like celery, kafka with retries so that if there is a delay from BSE to publish the data we won't have to manually execute the script for that day.
 
 ```
-2 18 * * * /path/to/python3.9 /path/to/cloned/repo/scripts/get_bhav_data.py
+2 18 * * 1,2,3,4,5 /path/to/python3.9 /path/to/cloned/repo/scripts/get_bhav_data.py
 ```
  - go to port 8000 to use it.
 
