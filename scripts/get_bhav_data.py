@@ -28,7 +28,12 @@ def get_file_name() -> str:
     '''get prev day's file name if current hour < 18'''
     current_date = datetime.now()
     hour = current_date.hour
-    if hour < 18:
+    weekday = current_date.weekday()
+    if weekday == 5:
+        day = current_date.day - 1
+    if weekday == 6:
+        day = current_date.day - 2
+    elif hour < 18:
         day = current_date.day - 1
     else:
         day = current_date.day
