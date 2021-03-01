@@ -37,7 +37,7 @@ def get_file_name() -> str:
         day = current_date.day - 1
     else:
         day = current_date.day
-    return f'EQ{day}{current_date.strftime("%m%y")}'
+    return f'EQ{str(day).zfill(2)}{current_date.strftime("%m%y")}'
 
 
 def get_data(filename: str) -> csv.DictReader:
@@ -67,6 +67,8 @@ def main():
                               'low': item.get('LOW'),
                               'close': item.get('CLOSE')
                           })
+
+    print(f'done >> {filename}')
 
 
 if __name__ == '__main__':
